@@ -13,7 +13,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyBZF63j7z6AkTlh2jybSKGKX3SyblJiRTA&libraries=places" type="text/javascript"></script>
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="../../resources/css/animate.css">
 
@@ -55,6 +55,7 @@
 								<a href="<%=request.getContextPath()%>/main/rutas">Rutas</a>
 							</li>
 							<li><a href="<%=request.getContextPath()%>/main/prd">Paraderos</a></li>
+							<li><a href="<%=request.getContextPath()%>/login"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
 						</ul>
 					</nav>
 					</div>

@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"></link>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
 <style>
 div.main{
   
@@ -54,21 +56,21 @@ body {
     
     <div class="container">
 <center>
-<h2 align="center" style="color:white">Bienvenido a TuEmpresa</h2>
+<h2 align="center" style="color:white">Bienvenido a BusMax</h2>
 <h3 align="center" style="color:white">Inicia sesión para conocer más acerca de empresas de buses en Lima.</h3><br></br>
 
 <div class="middle">
 
       <div style="border-right:1px solid #fff;padding: 0px 22px;width: 59%;">
 
-                        <form:form>
+                        <form method='post'>
                        
                              <div class="input-group">
        <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
         <input
                                     type="text" class="form-control"  
-                                    placeholder="usuario" required="true">
+                                    placeholder="usuario" name="username" required="true">
                                  
                        
                                     </div>
@@ -76,14 +78,14 @@ body {
                 <div class="input-group">
        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                       <input
-                                    type="password" class="form-control" 
+                                    type="password" name="password" class="form-control" 
                                     placeholder="password" required="true">	
                                     </div>
                             <br></br>
-                            <button style="width: 100%; font-size:1.1em;" class="btn btn-large btn btn-success btn-lg btn-block"  action="login">Login</button>
+                            <button style="width: 100%; font-size:1.1em;" type="submit" class="btn btn-large btn btn-success btn-lg btn-block">Login</button>
                           
                                     
-                        </form:form>
+                        </form>
                         
 					 </div> <!-- end login -->
  <img src="resources/bus_logo.png" style="width: 150px; height: 150px"></img>

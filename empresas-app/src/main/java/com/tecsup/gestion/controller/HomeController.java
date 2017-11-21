@@ -19,9 +19,9 @@ import com.tecsup.gestion.services.EmpresaService;
 import com.tecsup.gestion.utils.ParaderosFiltro;
 
 @Controller
-public class EmpresaController {
+public class HomeController {
 
-private static final Logger logger = LoggerFactory.getLogger(EmpresaController.class);
+private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
 	private EmpresaService empresaService;
@@ -39,14 +39,9 @@ private static final Logger logger = LoggerFactory.getLogger(EmpresaController.c
 		return "main/emp";
 	}
 	
-	@GetMapping("/")
-	public String main(@ModelAttribute("SpringWeb") Empresa empresa, ModelMap model) {
-
-		return "login";
-	}
 	
 	@GetMapping("/main/home")
-	public String list2(@ModelAttribute("SpringWeb") Empresa empresa, ModelMap model) {
+	public String home(@ModelAttribute("SpringWeb") Empresa empresa, ModelMap model) {
 
 		return "main/home";
 	}
