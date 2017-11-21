@@ -14,5 +14,9 @@ public interface EmpresaService {
 	List<Paradero> findAllParaderos() throws DAOException, EmptyResultException;
 	
 	List<String> findAllNames() throws DAOException, EmptyResultException;
+
+	List<Paradero> findParaderosByEmpresa(String nombre) throws DAOException, EmptyResultException;
+
+	Empresa findEmpresa(int empresa_id) throws DAOException, EmptyResultException;
 	
 }

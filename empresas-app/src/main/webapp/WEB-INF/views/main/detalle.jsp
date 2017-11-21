@@ -4,37 +4,38 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
-
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> -->
-<title>Rutas</title>
+	<title>Bus ${empresa.nombre}</title>
+	<meta charset="utf-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"></link>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyBZF63j7z6AkTlh2jybSKGKX3SyblJiRTA&libraries=places" type="text/javascript"></script>
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
-	
+
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="../resources/css/animate.css">
-	
+	<link rel="stylesheet" href="../../resources/css/animate.css">
+
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="../resources/css/bootstrap.css">
+	<link rel="stylesheet" href="../../resources/css/bootstrap.css">
 	<!-- Superfish -->
-	<link rel="stylesheet" href="../resources/css/superfish.css">
+	<link rel="stylesheet" href="../../resources/css/superfish.css">
 
-	<link rel="stylesheet" href="../resources/css/style.css">
+	<link rel="stylesheet" href="../../resources/css/style.css">
 		
-	<script src="../resources/js/jquery.min.js"></script>
+	<script src="../../resources/js/jquery.min.js"></script>
 	
-	<script src="../resources/js/jquery.waypoints.min.js"></script>
+	<script src="../../resources/js/jquery.waypoints.min.js"></script>
 	
-	<script src="../resources/js/main.js"></script>
+	<script src="../../resources/js/main.js"></script>
 
-	<script src="../resources/js/modernizr-2.6.2.min.js"></script>
-</head>
-<body>
-<div id="fh5co-header">
+	<script src="../../resources/js/modernizr-2.6.2.min.js"></script>
+	
+
+	</head>
+	<body>
+		<div id="fh5co-header">
 			<!-- end:top -->
 			<header id="fh5co-header-section">
 				<div class="container">
@@ -47,10 +48,10 @@
 							<li>
 								<a href="<%=request.getContextPath()%>/main/home">P&aacute;gina principal</a>
 							</li>
-							<li >
+							<li  class="active">
 								<a href="<%=request.getContextPath()%>/main/emp">Empresas</a>
 							</li>
-							<li class="active">
+							<li>
 								<a href="<%=request.getContextPath()%>/main/rutas">Rutas</a>
 							</li>
 							<li><a href="<%=request.getContextPath()%>/main/prd">Paraderos</a></li>
@@ -65,79 +66,48 @@
 
 		<div class="fh5co-hero">
 			<div class="fh5co-overlay"></div>
-			<div class="fh5co-cover text-center" style="background-image: url(../resources/bg_rutas.jpg);">
+			<div class="fh5co-cover text-center" style="background-image: url(../../resources/img/bg_bus.jpg) ;">
 				<div class="desc animate-box">
-					<h2>Rutas</h2>
-					<span>Busca la ruta de tu empresa favorita.</span>
+					<h2 style="font-weight:bold; padding-top:20px">${empresa.nombre}</h2>
 				</div>
 			</div>
 
 		</div>
 		<br>
- <form:form method="post" action="/gestion/main/rutas">
-	<div class="row">
-<div class="col-sm-4"></div>
- <div class="col-sm-2">
-<form:select path="nombre" style="height:40px" class="form-control">
-<form:options items="${nombres}" />
-</form:select>
-   </div>
-    <div class="col-sm-2">  
-    <input type="submit" value="Buscar" class="btn btn-success" />
-	</div>
-	
-	 </div>
-</form:form>
-<br>
-
-
-<div class="container">
+		<div class="container">
 					<div class="fh5co-project-inner row">
-					<div class="col-md-3 animate-box">
-					<h3 class="heading-section"></h3>
-					<p>	Selecciona una empresa para visualizar su ruta.</p>
-					</div>
-						<div class="fh5co-imgs col-md-6 animate-box">
-						 <div class="card" style="padding:20px">
-						 <div id="map" align="center" style="width: 500px; height: 400px;"></div>
-						 </div>
-						 </div>
-						 
- 
- <div class="fh5co-text col-md-3 animate-box">
-  <div class="card bg-light" style="padding:20px">
-
-  <ul class="list-group">
-   <li class="list-group-item active">Lista de paraderos</li>
-<br>
-<c:forEach var="prd" items="${paraderos}">
-            <li class="list-group-item" style="font-weight:bold">${prd.nombre}</li>
-           </c:forEach>
- </ul>
- </div>
- </div>
-</div>
-</div>
-<br>
-<footer>
-			<div id="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6">
-							<p>Copyright 2017. All Rights Reserved. 
+						<div class="col-md-3 animate-box">
+							<h3 class="heading-section">Descripci&oacute;n</h3>
+							<p>	${empresa.descripcion }</p>
+							<div class="card bg-light" style="padding:10px">
+							<div class="fh5co-grid animate-box" style="background-image: url(../../resources/img/${empresa.imagen});">
+							
+							</div>
+							</div>
 						</div>
-						<div class="col-md-6">
-							<ul class="footer-menu">
-								<li><a href="<%=request.getContextPath()%>/main/home">P&aacute;gina principal</a></li>
-								<li><a href="<%=request.getContextPath()%>/main/emp">Empresas</a></li>
-								<li><a href="<%=request.getContextPath()%>/main/rutas">Rutas</a></li>
-								<li><a href="<%=request.getContextPath()%>/main/prd">Paraderos</a></li>
+						<div class="fh5co-text col-md-6 animate-box">
+							 <div class="card bg-light" style="padding:20px">
+							 <div class="animate-box">
+								<div id="map" align="center" style="width:500px; height:400px; position:relative"></div>
+								</div>
+							 </div>
+						</div>
+						<div class="col-md-3 animate-box">
+							<div class="card bg-light" style="padding:20px">
+						
+							  <ul class="list-group">
+							   <li class="list-group-item active">Lista de paraderos</li>
+							<br>
+							<c:forEach var="prd" items="${paraderos}">
+							         <li class="list-group-item" style="font-weight:bold">${prd.nombre}</li>
+							        </c:forEach>
 							</ul>
+							</div>
+							
 						</div>
-					</div>
 				</div>
-			</div>
-		</footer>
+</div>
+</body>
 <script type="text/javascript">
 
    
@@ -168,6 +138,4 @@
       })(marker, i));
     }
   </script>
-  
-</body>
 </html>

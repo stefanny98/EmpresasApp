@@ -40,4 +40,20 @@ public class EmpresaServiceImpl implements EmpresaService{
 
 		return prd;
 	}
+
+	@Override
+	public List<Paradero> findParaderosByEmpresa(String nombre) throws DAOException, EmptyResultException {
+		
+		List<Paradero> paraderos = empresaDAO.findParaderosByEmpresa(nombre);
+
+		return paraderos;
+	}
+	
+	@Override
+	public Empresa findEmpresa(int empresa_id) throws DAOException, EmptyResultException {
+		
+		Empresa empresa = empresaDAO.findEmpresa(empresa_id);
+
+		return empresa;
+	}
 }

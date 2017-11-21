@@ -5,12 +5,14 @@ public class Empresa {
 	int id;
 	String nombre;
 	String descripcion;
+	String imagen;
 	
-	public Empresa(int id, String nombre, String descripcion) {
+	public Empresa(int id, String nombre, String descripcion, String imagen) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
+		this.imagen = imagen;
 	}
 
 	public Empresa() {
@@ -41,10 +43,19 @@ public class Empresa {
 		this.descripcion = descripcion;
 	}
 
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	@Override
 	public String toString() {
-		return "Empresa [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + "]";
+		return "Empresa [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen + "]";
 	}
+
 	
 	
 }

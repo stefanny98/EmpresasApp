@@ -16,8 +16,10 @@ public class EmpresaMapper implements RowMapper<Empresa>{
 		emp.setId(rs.getInt("id_empresa"));
 		emp.setNombre(rs.getString("nombre"));
 		emp.setDescripcion(rs.getString("descripcion"));
+		emp.setImagen(rs.getString("imagen"));
 		
 		return emp;
+		
 	}
 	
 }
