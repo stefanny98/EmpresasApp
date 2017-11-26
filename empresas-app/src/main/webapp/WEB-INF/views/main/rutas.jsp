@@ -32,6 +32,15 @@
 	<script src="../resources/js/main.js"></script>
 
 	<script src="../resources/js/modernizr-2.6.2.min.js"></script>
+	<style>
+     .map { 
+         position: absolute; 
+         top: 0; 
+         left: 0;
+         width: 100% !important; 
+         height: 100% !important;
+    } 
+	</style>
 </head>
 <body>
 <div id="fh5co-header">
@@ -75,7 +84,7 @@
 
 		</div>
 		<br>
- <form:form method="post" action="/gestion/main/rutas">
+ <form:form method="post" action="${pageContext.request.contextPath}/main/rutas">
 	<div class="row">
 <div class="col-sm-4"></div>
  <div class="col-sm-2">
@@ -99,8 +108,10 @@
 					<p>	Selecciona una empresa para visualizar su ruta.</p>
 					</div>
 						<div class="fh5co-imgs col-md-6 animate-box">
-						 <div class="card" style="padding:20px">
-						 <div id="map" align="center" style="width: 500px; height: 400px;"></div>
+						<div class="card" style="padding:10px">
+						 <div class="card" style="padding:150px; height: 400px;">
+						 <div class="map" id="map" align="center" style="width: 500px; height: 400px;"></div>
+						 </div>
 						 </div>
 						 </div>
 						 

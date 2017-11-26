@@ -31,7 +31,15 @@
 	<script src="../../resources/js/main.js"></script>
 
 	<script src="../../resources/js/modernizr-2.6.2.min.js"></script>
-	
+	<style>
+     .map { 
+         position: absolute; 
+         top: 0; 
+         left: 0;
+         width: 100% !important; 
+         height: 100% !important;
+    } 
+	</style>
 
 	</head>
 	<body>
@@ -87,9 +95,13 @@
 							</div>
 						</div>
 						<div class="fh5co-text col-md-6 animate-box">
-							 <div class="card bg-light" style="padding:20px">
+							 <div class="card bg-light" style="padding:10px">
 							 <div class="animate-box">
-								<div id="map" align="center" style="width:500px; height:400px; position:relative"></div>
+							 
+						 <div class="card" style="padding:150px; height: 400px;">
+								<div class="map" id="map" align="center" style="width:500px; height:400px;">
+								</div>
+								</div>
 								</div>
 							 </div>
 						</div>

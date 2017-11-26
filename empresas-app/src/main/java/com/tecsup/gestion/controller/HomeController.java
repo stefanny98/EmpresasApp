@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tecsup.gestion.model.Empresa;
 import com.tecsup.gestion.model.Paradero;
+import com.tecsup.gestion.model.Usuario;
 import com.tecsup.gestion.services.EmpresaService;
 import com.tecsup.gestion.utils.ParaderosFiltro;
 
@@ -44,6 +45,14 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	public String home(@ModelAttribute("SpringWeb") Empresa empresa, ModelMap model) {
 
 		return "main/home";
+	}
+	
+	@GetMapping("/main/perfil")
+	public String perfil(@ModelAttribute("SpringWeb") Usuario usuario, ModelMap model) {
+			
+			model.addAttribute("nombre", usuario.getUsername());
+			
+		return "main/perfil";
 	}
 	
 	@GetMapping("/main/emp/{empresa_id}")
@@ -163,4 +172,6 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 
 		return modelAndView;
 	}
+	
+	
 }

@@ -74,7 +74,10 @@ public class LoginController {
     	             logger.info("responseMessage: " + responseMessage);
     	             logger.info("Login correcto");
     	             httpSession.setAttribute("usuario",responseMessage.getUsername());
-    	             vista= "redirect:/main/home";
+    	             // usuario - contraseña a la vista 
+    	             model.addAttribute("username", responseMessage.getUsername());
+    	             model.addAttribute("password", responseMessage.getPassword());
+    	             vista= "redirect:/main/perfil";
     	            
     	           
     	            

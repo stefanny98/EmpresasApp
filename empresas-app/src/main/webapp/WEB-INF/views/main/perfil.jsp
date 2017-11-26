@@ -1,23 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Paraderos</title>
+	<head>
+	<title>Perfil</title>
+	<meta charset="utf-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"></link>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
+	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="../resources/css/animate.css">
-
-	<!-- Bootstrap  -->
+	
 	<link rel="stylesheet" href="../resources/css/bootstrap.css">
-	<!-- Superfish -->
+
 	<link rel="stylesheet" href="../resources/css/superfish.css">
 
 	<link rel="stylesheet" href="../resources/css/style.css">
@@ -29,9 +27,13 @@
 	<script src="../resources/js/main.js"></script>
 
 	<script src="../resources/js/modernizr-2.6.2.min.js"></script>
-</head>
-<body background="../resources/login_background.jpg">
-<div id="fh5co-header">
+	
+
+	</head>
+	<body>
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+		<div id="fh5co-header">
 			<!-- end:top -->
 			<header id="fh5co-header-section">
 				<div class="container">
@@ -41,17 +43,11 @@
 						<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li>
-								<a href="<%=request.getContextPath()%>/main/home">P&aacute;gina principal</a>
-							</li>
-							<li >
-								<a href="<%=request.getContextPath()%>/main/emp">Empresas</a>
-							</li>
-							<li >
-								<a href="<%=request.getContextPath()%>/main/rutas">Rutas</a>
-							</li >
-							<li class="active">
-							<a href="<%=request.getContextPath()%>/main/prd">Paraderos</a></li>
+							<li><a href="<%=request.getContextPath()%>/main/home">P&aacute;gina principal</a></li>
+							<li><a href="<%=request.getContextPath()%>/main/emp">Empresas</a></li>
+							<li><a href="<%=request.getContextPath()%>/main/rutas">Rutas</a></li>
+							<li><a href="<%=request.getContextPath()%>/main/prd">Paraderos</a></li>
+							<li class="active"><a href="<%=request.getContextPath()%>/main/perfil">Perfil</a></li>
 							<li><a href="<%=request.getContextPath()%>/login"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
 						</ul>
 					</nav>
@@ -64,54 +60,18 @@
 
 		<div class="fh5co-hero">
 			<div class="fh5co-overlay"></div>
-			<div class="fh5co-cover text-center" style="background-image: url(../resources/bg_paradero.jpg);">
+			<div class="fh5co-cover text-center" style="background-image: url(../resources/bg_home.jpg) ;">
 				<div class="desc animate-box">
-					<h2>Paraderos</h2>
-					<span>Busca los paraderos de tu bus favorito.</span>
+					<h2>Bienvenido a busmax</h2>
+					<span>Encuentra rutas y paraderos de diferentes buses de Lima</span>
 				</div>
 			</div>
 
 		</div>
-		<br>
-<form:form method="post" action="${pageContext.request.contextPath}/main/prd">
-	<div class="row">
-<div class="col-sm-4"></div>
- <div class="col-sm-2">
-
-<form:select path="nombre" style="height:40px" class="form-control">
-<form:options items="${nombres}" />
-</form:select>
-   </div>
-    <div class="col-sm-2">  
-    <input type="submit" value="Buscar" class="btn btn-success" />
-	</div>
-	
-	 </div>
-</form:form>
-<br>
-	<c:forEach var="prd" items="${paraderos}">
-		<div class="card-group">
-		<div class="col-sm-2"></div>
-		 <div class="col-sm-4">
-		  <div class="card ">
-		    <div class="card-body" style="background-color: #248ecc">
-		      <p class="card-text" style="color:white">${prd.empresa}</p>
-		   
-		  </div>
-		</div>
-		</div>
-		 <div class="col-sm-4">
-		<div class="card border-dark mb-3">
-		  <div class="card-body"  style="background-color:#ffffff">
-		 
-		    <p class="card-text" style="color:black; padding-left:100px"> <img src="../resources/bus.jpg"></img> ${prd.nombre} </p>
-		   </div>
-		 </div>
-		</div>
-		 </div>
-	</c:forEach>
-					<br>
-<footer>
+			
+				nombre: ${nombre}
+				
+		<footer>
 			<div id="footer">
 				<div class="container">
 					<div class="row">
@@ -130,5 +90,13 @@
 				</div>
 			</div>
 		</footer>
-</body>
+	
+
+	</div>
+	
+
+	</div>
+
+	</body>
 </html>
+

@@ -14,7 +14,7 @@ import com.tecsup.gestion.exception.DAOException;
 import com.tecsup.gestion.exception.EmptyResultException;
 import com.tecsup.gestion.mapper.EmpresaMapper;
 import com.tecsup.gestion.mapper.ParaderoMapper;
-import com.tecsup.gestion.mapper.PruebaMapper;
+import com.tecsup.gestion.mapper.NombreMapper;
 import com.tecsup.gestion.model.Empresa;
 import com.tecsup.gestion.model.Paradero;
 
@@ -72,7 +72,7 @@ public class EmpresaDAOImpl implements EmpresaDAO {
 		
 		try {
 
-			List<String> nombres = jdbcTemplate.query(query, new PruebaMapper());
+			List<String> nombres = jdbcTemplate.query(query, new NombreMapper());
 			//
 			return nombres;
 
