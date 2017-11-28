@@ -13,7 +13,7 @@ public Paradero mapRow(ResultSet rs, int rowNum) throws SQLException{
 		
 		Paradero prd = new Paradero();
 		
-		prd.setEmpresa(rs.getString(1));
+		prd.setId(rs.getInt(1));
 		prd.setNombre(rs.getString(2));
 		prd.setLongitud(rs.getDouble(3));
 		prd.setLatitud(rs.getDouble(4));

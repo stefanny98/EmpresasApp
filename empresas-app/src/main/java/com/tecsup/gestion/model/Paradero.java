@@ -3,6 +3,7 @@ package com.tecsup.gestion.model;
 public class Paradero {
 	
 	String empresa;
+	int id;
 	String nombre;
 	double longitud;
 	double latitud;
@@ -12,9 +13,10 @@ public class Paradero {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Paradero(String empresa, String nombre, double longitud, double latitud) {
+	public Paradero(String empresa, int id, String nombre, double longitud, double latitud) {
 		super();
 		this.empresa = empresa;
+		this.id = id;
 		this.nombre = nombre;
 		this.longitud = longitud;
 		this.latitud = latitud;
@@ -26,6 +28,14 @@ public class Paradero {
 
 	public void setEmpresa(String empresa) {
 		this.empresa = empresa;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNombre() {

@@ -53,6 +53,7 @@
 								<a href="<%=request.getContextPath()%>/main/rutas">Rutas</a>
 							</li>
 							<li><a href="<%=request.getContextPath()%>/main/prd">Paraderos</a></li>
+							<li><a href="<%=request.getContextPath()%>/main/perfil/${id}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 							<li><a href="<%=request.getContextPath()%>/login"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
 						</ul>
 					</nav>

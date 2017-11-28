@@ -22,7 +22,7 @@ import retrofit2.Response;
 public class LoginController {
 	
 	
-	public String vista = "";
+	public String vista = "login";
 
 
 	
@@ -73,12 +73,10 @@ public class LoginController {
     	             Usuario responseMessage = response.body();
     	             logger.info("responseMessage: " + responseMessage);
     	             logger.info("Login correcto");
-    	             httpSession.setAttribute("usuario",responseMessage.getUsername());
-    	             // usuario - contraseña a la vista 
-    	             model.addAttribute("username", responseMessage.getUsername());
-    	             model.addAttribute("password", responseMessage.getPassword());
-    	             vista= "redirect:/main/perfil";
-    	            
+
+    	             httpSession.setAttribute("id",responseMessage.getId());
+    	             // devuelve vista principal
+    	             vista= "redirect:/main/home";
     	           
     	            
     	         } else 
@@ -117,7 +115,7 @@ public class LoginController {
          
       	
      });
-     Thread.sleep(2000);
+     Thread.sleep(4000);
 	logger.info("Retorna la vista");
  	logger.info(vista);
  	return vista;

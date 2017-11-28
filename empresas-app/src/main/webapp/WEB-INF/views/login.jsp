@@ -74,7 +74,7 @@ body {
                                  
                        
                                     </div>
-                                    <br></br>
+                                    <br>
                 <div class="input-group">
        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                       <input
@@ -82,13 +82,14 @@ body {
                                     placeholder="password" required="true">	
                                     </div>
                             <br></br>
-                            <button style="width: 100%; font-size:1.1em;" type="submit" class="btn btn-large btn btn-success btn-lg btn-block">Login</button>
-                          
+                            <button style="width: 100%; font-size:1.1em;" type="submit" class="btn btn-large btn btn-success btn-lg btn-block">Login</button><br>
+                          <font color="white">Nuevo usuario:</font> <a href="<%=request.getContextPath()%>/register">Registrarse</a>
                                     
                         </form>
                         
 					 </div> <!-- end login -->
- <img src="resources/bus_logo.png" style="width: 150px; height: 150px"></img>
+ <img src="resources/bus_logo.png" style="width: 150px; height: 150px"></img> 
+ 
       </div>
 </center>
     </div>

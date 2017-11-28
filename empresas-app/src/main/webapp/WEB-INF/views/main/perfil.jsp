@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,21 +14,22 @@
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="../resources/css/animate.css">
+	<link rel="stylesheet" href="../../resources/css/animate.css">
 	
-	<link rel="stylesheet" href="../resources/css/bootstrap.css">
+	<link rel="stylesheet" href="../../resources/css/bootstrap.css">
 
-	<link rel="stylesheet" href="../resources/css/superfish.css">
+	<link rel="stylesheet" href="../../resources/css/superfish.css">
 
-	<link rel="stylesheet" href="../resources/css/style.css">
+	<link rel="stylesheet" href="../../resources/css/style.css">
 		
-	<script src="../resources/js/jquery.min.js"></script>
+	<script src="../../resources/js/jquery.min.js"></script>
 	
-	<script src="../resources/js/jquery.waypoints.min.js"></script>
+	<script src="../../resources/js/jquery.waypoints.min.js"></script>
 	
-	<script src="../resources/js/main.js"></script>
+	<script src="../../resources/js/main.js"></script>
+	
+	<script src="../../resources/js/modernizr-2.6.2.min.js"></script>
 
-	<script src="../resources/js/modernizr-2.6.2.min.js"></script>
 	
 
 	</head>
@@ -47,7 +50,7 @@
 							<li><a href="<%=request.getContextPath()%>/main/emp">Empresas</a></li>
 							<li><a href="<%=request.getContextPath()%>/main/rutas">Rutas</a></li>
 							<li><a href="<%=request.getContextPath()%>/main/prd">Paraderos</a></li>
-							<li class="active"><a href="<%=request.getContextPath()%>/main/perfil">Perfil</a></li>
+							<li class="active"><a href="<%=request.getContextPath()%>/main/perfil"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 							<li><a href="<%=request.getContextPath()%>/login"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
 						</ul>
 					</nav>
@@ -57,20 +60,51 @@
 			
 		</div>
 		
-
+		
 		<div class="fh5co-hero">
-			<div class="fh5co-overlay"></div>
-			<div class="fh5co-cover text-center" style="background-image: url(../resources/bg_home.jpg) ;">
+		
+			<div class="fh5co-overlay" style="height:300px"></div>
+			<div class="fh5co-cover text-center" style="height:300px;background-image: url(../../resources/bg_user.jpg) ;">
 				<div class="desc animate-box">
-					<h2>Bienvenido a busmax</h2>
-					<span>Encuentra rutas y paraderos de diferentes buses de Lima</span>
+					<h2>Perfil de Usuario</h2>
 				</div>
 			</div>
 
 		</div>
+			<h3 align="center">Bienvenid@ !</h3>	
+				<!-- Formulario / editar usuario -->
+		<div class="container-fluid" >
+		<div class="row-fluid">
+			<div class="col-md-6">
+				<h4 class="text-center">Editar Perfil</h4>
+				<hr>
+				<form:form method="post" servletRelativeAction="/main/perfil" modelAttribute="usuario">
+					<form:hidden path="id" />
+					
+					<div class="form-group">
+						<label for="username">Username: </label>
+						<form:input path="username" class="form-control"/>
+							
+					</div>
+					<div class="form-group">
+						<label for="fullname">Nombre Completo: </label>
+						<form:input path="fullname" class="form-control" />
+					</div>
+					
+					<div class="form-group">
+						<label for="email">Email: </label>
+						<form:input path="email" class="form-control" />
+					</div>
 			
-				nombre: ${nombre}
+					<div class="form-group">
+						<input type="submit" value="guardar" class="btn btn-success" />
+					</div>
+				</form:form>
 				
+				<font color="red">${message}</font>
+			</div>
+		</div>
+	</div>		
 		<footer>
 			<div id="footer">
 				<div class="container">

@@ -26,8 +26,9 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("api/v1/register")
-    Call<ResponseMessage> createUsuario(@Field("username") String username,
+    Call<Usuario> createUsuario(@Field("username") String username,
                                         @Field("password") String password,
+                                        @Field("fullname") String fullname,
                                         @Field("email") String email);
 
 

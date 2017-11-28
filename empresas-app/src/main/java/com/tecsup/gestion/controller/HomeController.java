@@ -15,8 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tecsup.gestion.model.Empresa;
 import com.tecsup.gestion.model.Paradero;
-import com.tecsup.gestion.model.Usuario;
 import com.tecsup.gestion.services.EmpresaService;
+import com.tecsup.gestion.services.ParaderoService;
 import com.tecsup.gestion.utils.ParaderosFiltro;
 
 @Controller
@@ -26,6 +26,10 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	
 	@Autowired
 	private EmpresaService empresaService;
+	
+	@Autowired
+	private ParaderoService paraderoService;
+
 
 	@GetMapping("/main/emp")
 	public String list(@ModelAttribute("SpringWeb") Empresa empresa, ModelMap model) {
@@ -47,13 +51,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		return "main/home";
 	}
 	
-	@GetMapping("/main/perfil")
-	public String perfil(@ModelAttribute("SpringWeb") Usuario usuario, ModelMap model) {
-			
-			model.addAttribute("nombre", usuario.getUsername());
-			
-		return "main/perfil";
-	}
+
 	
 	@GetMapping("/main/emp/{empresa_id}")
 	public ModelAndView form(@PathVariable int empresa_id, ModelMap model) {
@@ -63,8 +61,8 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		try {
 			Empresa emp = empresaService.findEmpresa(empresa_id);
 			model.addAttribute("empresa", emp);
-			model.addAttribute("paraderos", empresaService.findParaderosByEmpresa(emp.getNombre()));
-			List<Paradero> paraderos = empresaService.findParaderosByEmpresa(emp.getNombre());
+			model.addAttribute("paraderos", paraderoService.findParaderosByEmpresa(emp.getNombre()));
+			List<Paradero> paraderos = paraderoService.findParaderosByEmpresa(emp.getNombre());
 			
 			ParaderosFiltro.filtrar(paraderos);
 	
@@ -90,9 +88,9 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		try {
 			modelAndView = new ModelAndView("main/rutas", "command", empresa);
 			model.addAttribute("nombres", empresaService.findAllNames());
-			model.addAttribute("paraderos", empresaService.findParaderosByEmpresa(nombre));
+			model.addAttribute("paraderos", paraderoService.findParaderosByEmpresa(nombre));
 			
-			List<Paradero> paraderos = empresaService.findParaderosByEmpresa(nombre);
+			List<Paradero> paraderos = paraderoService.findParaderosByEmpresa(nombre);
 			
 			ParaderosFiltro.filtrar(paraderos);
 	
@@ -118,9 +116,9 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			modelAndView = new ModelAndView("main/rutas", "command", emp);
 			
 			model.addAttribute("nombres", empresaService.findAllNames());
-			model.addAttribute("paraderos", empresaService.findParaderosByEmpresa(emp.getNombre()));
+			model.addAttribute("paraderos", paraderoService.findParaderosByEmpresa(emp.getNombre()));
 			
-			List<Paradero> paraderos = empresaService.findParaderosByEmpresa(emp.getNombre());
+			List<Paradero> paraderos = paraderoService.findParaderosByEmpresa(emp.getNombre());
 			
 			ParaderosFiltro.filtrar(paraderos);
 	
@@ -147,7 +145,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		try {
 			modelAndView = new ModelAndView("main/prd", "command", empresa);
 			model.addAttribute("nombres", empresaService.findAllNames());
-			model.addAttribute("paraderos", empresaService.findParaderosByEmpresa(nombre));
+			model.addAttribute("paraderos", paraderoService.findParaderosByEmpresa(nombre));
 		} catch (Exception e) {
 			logger.info(e.getMessage());
 			model.addAttribute("message", e.getMessage());
@@ -164,7 +162,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			
 			modelAndView = new ModelAndView("main/prd", "command", emp);
 			model.addAttribute("nombres", empresaService.findAllNames());
-			model.addAttribute("paraderos", empresaService.findParaderosByEmpresa(emp.getNombre()));
+			model.addAttribute("paraderos", paraderoService.findParaderosByEmpresa(emp.getNombre()));
 			
 		} catch (Exception e) {
 			model.addAttribute("message", e.getMessage());

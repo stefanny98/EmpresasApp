@@ -9,7 +9,6 @@ import com.tecsup.gestion.dao.EmpresaDAO;
 import com.tecsup.gestion.exception.DAOException;
 import com.tecsup.gestion.exception.EmptyResultException;
 import com.tecsup.gestion.model.Empresa;
-import com.tecsup.gestion.model.Paradero;
 
 @Service
 public class EmpresaServiceImpl implements EmpresaService{
@@ -26,14 +25,6 @@ public class EmpresaServiceImpl implements EmpresaService{
 	}
 	
 	@Override
-	public List<Paradero> findAllParaderos() throws DAOException, EmptyResultException {
-		
-		List<Paradero> prd = empresaDAO.findAllParaderos();
-
-		return prd;
-	}
-	
-	@Override
 	public List<String> findAllNames() throws DAOException, EmptyResultException {
 		
 		List<String> prd = empresaDAO.findAllNames();
@@ -41,13 +32,6 @@ public class EmpresaServiceImpl implements EmpresaService{
 		return prd;
 	}
 
-	@Override
-	public List<Paradero> findParaderosByEmpresa(String nombre) throws DAOException, EmptyResultException {
-		
-		List<Paradero> paraderos = empresaDAO.findParaderosByEmpresa(nombre);
-
-		return paraderos;
-	}
 	
 	@Override
 	public Empresa findEmpresa(int empresa_id) throws DAOException, EmptyResultException {
@@ -55,5 +39,23 @@ public class EmpresaServiceImpl implements EmpresaService{
 		Empresa empresa = empresaDAO.findEmpresa(empresa_id);
 
 		return empresa;
+	}
+	
+	@Override
+	public void update(String nombre, String descripcion, int id_empresa) throws DAOException {
+		empresaDAO.update(nombre, descripcion, id_empresa);
+		
+	}
+
+	@Override
+	public void delete(String nombre) throws DAOException {
+		empresaDAO.delete(nombre);
+		
+	}
+
+	@Override
+	public void create(String nombre, String descripcion) throws DAOException {
+		empresaDAO.create(nombre, descripcion);
+		
 	}
 }
