@@ -1,5 +1,7 @@
 package com.tecsup.gestion.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -15,7 +17,6 @@ import com.tecsup.gestion.services.ApiService;
 import com.tecsup.gestion.services.ApiServiceGenerator;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 @Controller
@@ -48,7 +49,7 @@ public class LoginController {
 	@PostMapping("/login")
 	public String login(final Model model,final HttpSession httpSession,
 				  @RequestParam(value = "username") String username,
-				  @RequestParam(value = "password") String password) throws InterruptedException 
+				  @RequestParam(value = "password") String password) throws InterruptedException, IOException 
 	{								
 	
    
@@ -57,65 +58,52 @@ public class LoginController {
 	 ApiService service = ApiServiceGenerator.createService(ApiService.class);
      Call<Usuario> call = service.loginUser(username, password);
      logger.info("Culminó la creación del APi");			
-	//Mensajes de error o bienvenida     
+	//Mensajes de error o bienvenida    
      
-     call.enqueue(new Callback<Usuario>() 
-     {    	
-    	 public void onResponse(Call<Usuario> call, Response<Usuario> response) 
-    	 {    		  
-    	     try 
-    	     {
-    	         int statusCode = response.code();
-    	         logger.info("HTTP status code: " + statusCode);    
-    	         
-    	         if (response.isSuccessful()) 
-    	         {
-    	             Usuario responseMessage = response.body();
-    	             logger.info("responseMessage: " + responseMessage);
-    	             logger.info("Login correcto");
-
-    	             httpSession.setAttribute("id",responseMessage.getId());
-    	             // devuelve vista principal
-    	             vista= "redirect:/main/home";
-    	           
-    	            
-    	         } else 
-    	         {
-    	        	//progressDialog.dismiss();
-    	        	 logger.info("Login incorrecto");
-    	        	 logger.info("onError: " + response.errorBody().string());
-    	        	 model.addAttribute("message", "Usuario y clave incorrectos");
-    	             vista="login";
-    	         }
-    	     }catch (Throwable t) 
-    	     {
-    	         		try 
-    	         		{
-    	         			logger.info("Error tipo T");
-    	         			logger.info("onThrowable: " + t.toString());
-    	         			logger.info("onThrowable: " + t.toString(), t);
-    	        	
-    	         			model.addAttribute("message", t.getMessage());
-    	         			 vista= "login";   	        	           	             
-    	         		} catch (Throwable x) 
-    	         		{}
-    	     }
-    	     
- 		}
-         public void onFailure(Call<Usuario> call, Throwable t) 
-         {	 
-        	 logger.info("Error tipo onFailure, demora en responder");
-        	 logger.info("onFailure: " + t.toString());
+   
+     
+     Response<Usuario> response = call.execute();
+     
+     logger.info(String.valueOf(response.code()));
+     try 
+     {
+         int statusCode = response.code();
+         logger.info("HTTP status code: " + statusCode);    
+         
+         if (response.isSuccessful()) 
+         {
+             Usuario responseMessage = response.body();
+             logger.info("responseMessage: " + responseMessage);
+             logger.info("Login correcto");
+             httpSession.setAttribute("id",responseMessage.getId());
+             vista= "redirect:/main/home";
             
-        	 model.addAttribute("message", t.getMessage());
-        	 vista= "login";
-	                  
-         } 
-         
-         
-      	
-     });
-     Thread.sleep(4000);
+           
+           
+            
+         } else 
+         {
+        	//progressDialog.dismiss();
+        	 logger.info("Login incorrecto");
+        	 logger.info("onError: " + response.errorBody().string());
+        	 model.addAttribute("message", "Usuario y clave incorrectos");
+             vista="login";
+         }
+     }catch (Throwable t) 
+     {
+         		try 
+         		{
+         			logger.info("Error tipo T");
+         			logger.info("onThrowable: " + t.toString());
+         			logger.info("onThrowable: " + t.toString(), t);
+        	
+         			model.addAttribute("message", t.getMessage());
+         			 vista= "login";   	        	           	             
+         		} catch (Throwable x) 
+         		{}
+     }
+     
+     
 	logger.info("Retorna la vista");
  	logger.info(vista);
  	return vista;
