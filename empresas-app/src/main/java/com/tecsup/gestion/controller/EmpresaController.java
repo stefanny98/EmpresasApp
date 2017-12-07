@@ -65,9 +65,7 @@ public class EmpresaController {
 
 		return "/admin/menu";
 	}
-	//////////////////////////////////////////////////////////////////////////////////////
-	// SHOW EDIT FORM OR DELETE FORM//
-	//////////////////////////////////////////////////////////////////////////////////////
+
 
 	@GetMapping("/admin/emp/{action}/{id_empresa}")
 	public ModelAndView form(@PathVariable String action, @PathVariable int id_empresa, ModelMap model) {
@@ -162,9 +160,6 @@ public class EmpresaController {
 
 	@PostMapping("/admin/emp/create")
 	public ModelAndView create(@ModelAttribute("empresa") @Validated Empresa emp, BindingResult result, ModelMap model) {
-
-		// String msg = context.getMessage("employee.salary.min", null, Locale.US);
-		// logger.info("message = " + msg);
 
 		ModelAndView modelAndView = null;
 
