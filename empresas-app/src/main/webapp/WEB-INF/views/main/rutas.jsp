@@ -14,7 +14,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyBZF63j7z6AkTlh2jybSKGKX3SyblJiRTA&libraries=places" type="text/javascript"></script>
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="../resources/bus_logo.png" />	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="../resources/css/animate.css">
 	
@@ -120,7 +121,7 @@
  <div class="fh5co-text col-md-3 animate-box">
   <div class="card bg-light" style="padding:20px">
 
-  <ul class="list-group">
+  <ul class="list-group" style="height:350px;overflow-y: scroll;padding-right:10px">
    <li class="list-group-item active">Lista de paraderos</li>
 <br>
 <c:forEach var="prd" items="${paraderos}">

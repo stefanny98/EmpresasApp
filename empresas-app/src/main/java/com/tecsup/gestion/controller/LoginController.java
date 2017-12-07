@@ -86,7 +86,7 @@ public class LoginController {
         	//progressDialog.dismiss();
         	 logger.info("Login incorrecto");
         	 logger.info("onError: " + response.errorBody().string());
-        	 model.addAttribute("message", "Usuario y clave incorrectos");
+        	 model.addAttribute("message", "Usuario y/o clave incorrectos");
              vista="login";
          }
      }catch (Throwable t) 

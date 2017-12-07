@@ -14,6 +14,7 @@
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyBZF63j7z6AkTlh2jybSKGKX3SyblJiRTA&libraries=places" type="text/javascript"></script>
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="../../resources/bus_logo.png" />
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="../../resources/css/animate.css">
 
@@ -107,8 +108,8 @@
 						</div>
 						<div class="col-md-3 animate-box">
 							<div class="card bg-light" style="padding:20px">
-						
-							  <ul class="list-group">
+						<ul class="list-group" style="height:350px;overflow-y: scroll;padding-right:10px">
+
 							   <li class="list-group-item active">Lista de paraderos</li>
 							<br>
 							<c:forEach var="prd" items="${paraderos}">
@@ -120,6 +121,26 @@
 						</div>
 				</div>
 </div>
+<br>
+<footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<p>Copyright 2017. All Rights Reserved. 
+						</div>
+						<div class="col-md-6">
+							<ul class="footer-menu">
+								<li><a href="<%=request.getContextPath()%>/main/home">P&aacute;gina principal</a></li>
+								<li><a href="<%=request.getContextPath()%>/main/emp">Empresas</a></li>
+								<li><a href="<%=request.getContextPath()%>/main/rutas">Rutas</a></li>
+								<li><a href="<%=request.getContextPath()%>/main/prd">Paraderos</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 </body>
 <script type="text/javascript">
 

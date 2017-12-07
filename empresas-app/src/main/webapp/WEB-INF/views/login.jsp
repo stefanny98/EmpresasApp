@@ -14,7 +14,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-
+<link rel="shortcut icon" type="image/x-icon" href="resources/bus_logo.png" />
 <style>
 
 div.main{
@@ -80,7 +80,7 @@ body {
 <!--                                     </div> -->
 <div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="username"   placeholder="Ingresa tu usuario"/>
+									<input type="text" class="form-control" name="username"   placeholder="Ingresa tu usuario" required="true"/>
 								</div>
                                     <br>
                 <div class="input-group">
@@ -94,7 +94,7 @@ body {
                           <font style="font-size: 15px;" color="white">Nuevo usuario:</font> <a style="font-size: 15px;color:lightgreen" href="<%=request.getContextPath()%>/register">Registrarse</a>
                                     
                         </form>
-                        
+                        <font color="red">${message}</font>
 					 </div> <!-- end login -->
  <img src="resources/bus_logo.png" style="width: 150px; height: 150px"></img> 
  

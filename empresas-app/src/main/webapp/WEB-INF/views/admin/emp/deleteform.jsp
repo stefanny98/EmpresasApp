@@ -20,7 +20,7 @@
 				<h4 class="text-center">Borrar Empresa</h4>
 				<hr>
 				<form:form method="post" servletRelativeAction="/admin/emp/delete" modelAttribute="empresa" >
-					<form:hidden path="id_empresa" />
+					<form:hidden path="id" />
 					<div class="form-group">
 						<label for="nombre">Nombre: </label>
 						<form:input path="nombre" class="form-control" readonly="true" />
